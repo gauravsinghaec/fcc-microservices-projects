@@ -24,6 +24,16 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+// API for header parser project
+app.get("/api/whoami",function(req, res){
+  console.log(req.headers);
+  var obj = {
+    ipaddress: req.ip,
+    language: req.headers["accept-language"],
+    software: req.headers["user-agent"]
+  };
+  res.json(obj);
+})
 
 
 // listen for requests :)
